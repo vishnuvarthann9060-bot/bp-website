@@ -1,27 +1,15 @@
-import { useState } from 'react'
 import { 
   TreePine, 
-  Calculator, 
   PhoneCall, 
   MessageSquare, 
   Truck, 
   Ruler, 
   ShieldCheck, 
   MapPin, 
-  Clock,
-  ArrowRight
+  Clock
 } from 'lucide-react'
 
 export default function App() {
-  // Timber Volume Calculator State (Length in ft, Width in inches, Thickness in inches)
-  const [calcLength, setCalcLength] = useState<number>(10)
-  const [calcWidth, setCalcWidth] = useState<number>(6)
-  const [calcThickness, setCalcThickness] = useState<number>(2)
-  const [calcQuantity, setCalcQuantity] = useState<number>(1)
-
-  // Cubic feet formula: (Length (ft) * Width (in) * Thickness (in) / 144) * Quantity
-  const cubicFeet = ((calcLength * calcWidth * calcThickness) / 144) * calcQuantity
-
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 flex flex-col font-sans selection:bg-amber-500 selection:text-stone-950">
       {/* Top Announcement Bar */}
@@ -47,13 +35,6 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a 
-              href="#calculator"
-              className="hidden sm:inline-flex items-center gap-1.5 text-sm text-stone-300 hover:text-amber-400 transition-colors px-3 py-2 rounded-lg"
-            >
-              <Calculator className="w-4 h-4" />
-              Volume Calculator
-            </a>
             <a
               href="https://wa.me/"
               target="_blank"
@@ -89,11 +70,13 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="#calculator"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-[1.02]"
+                href="https://wa.me/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl shadow-emerald-700/20 transition-all hover:scale-[1.02]"
               >
-                <Calculator className="w-5 h-5" />
-                Calculate Timber Volume
+                <MessageSquare className="w-5 h-5" />
+                Get Quote on WhatsApp
               </a>
               <a
                 href="tel:"
@@ -147,105 +130,6 @@ export default function App() {
                 <h3 className="font-semibold text-white">Transparent Volume</h3>
                 <p className="text-xs text-stone-400 mt-1">Clear, verifiable cubic-feet calculations and honest pricing.</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Interactive Wood Volume Calculator */}
-        <section id="calculator" className="py-20 px-4 sm:px-6 max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-800 text-amber-400 text-xs font-semibold mb-3">
-              <Calculator className="w-3.5 h-3.5" />
-              Free Tool for Contractors & Builders
-            </div>
-            <h2 className="text-3xl font-bold text-white">Timber Volume Estimator</h2>
-            <p className="text-stone-400 text-sm mt-2">
-              Instantly calculate the total cubic feet (CFT) for your timber batch.
-            </p>
-          </div>
-
-          <div className="p-6 sm:p-8 rounded-3xl bg-stone-900 border border-stone-800 shadow-2xl">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              <div>
-                <label className="block text-xs font-medium text-stone-300 uppercase mb-2">
-                  Length (Feet)
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  value={calcLength}
-                  onChange={(e) => setCalcLength(Math.max(1, Number(e.target.value) || 0))}
-                  className="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-white font-semibold focus:outline-none focus:border-amber-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-300 uppercase mb-2">
-                  Width (Inches)
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  value={calcWidth}
-                  onChange={(e) => setCalcWidth(Math.max(1, Number(e.target.value) || 0))}
-                  className="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-white font-semibold focus:outline-none focus:border-amber-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-300 uppercase mb-2">
-                  Thickness (Inches)
-                </label>
-                <input
-                  type="number"
-                  min="0.5"
-                  step="0.5"
-                  value={calcThickness}
-                  onChange={(e) => setCalcThickness(Math.max(0.5, Number(e.target.value) || 0))}
-                  className="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-white font-semibold focus:outline-none focus:border-amber-500 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-300 uppercase mb-2">
-                  Quantity (Pieces)
-                </label>
-                <input
-                  type="number"
-                  min="1"
-                  value={calcQuantity}
-                  onChange={(e) => setCalcQuantity(Math.max(1, Number(e.target.value) || 0))}
-                  className="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-white font-semibold focus:outline-none focus:border-amber-500 transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Result Box */}
-            <div className="mt-8 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-6 bg-stone-950/60 p-6 rounded-2xl">
-              <div>
-                <span className="text-xs text-stone-400 uppercase tracking-wider block">Estimated Total Volume</span>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-4xl font-extrabold text-amber-400">
-                    {cubicFeet.toFixed(2)}
-                  </span>
-                  <span className="text-stone-300 font-semibold">Cubic Feet (CFT)</span>
-                </div>
-                <span className="text-xs text-stone-500 block mt-1">
-                  ≈ {(cubicFeet * 0.0283168).toFixed(3)} Cubic Meters (CBM)
-                </span>
-              </div>
-
-              <a
-                href={`https://wa.me/?text=${encodeURIComponent(
-                  `Hi Sree Ambika Saw Mill, I want a quote for: ${calcQuantity} pcs of ${calcLength}ft x ${calcWidth}in x ${calcThickness}in (Total: ${cubicFeet.toFixed(2)} CFT).`
-                )}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-700/20 transition-all hover:scale-[1.02]"
-              >
-                <span>Send Spec for Instant Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
         </section>
