@@ -38,7 +38,7 @@ export default function App() {
             </div>
             <div>
               <span className="text-xl font-bold tracking-tight text-white block leading-tight">
-                BP Saw Mill
+                Sree Ambika Saw Mill
               </span>
               <span className="text-xs text-amber-400 font-medium tracking-wide uppercase">
                 Wood & Timber Industries
@@ -237,7 +237,7 @@ export default function App() {
 
               <a
                 href={`https://wa.me/?text=${encodeURIComponent(
-                  `Hi, I want a quote for: ${calcQuantity} pcs of ${calcLength}ft x ${calcWidth}in x ${calcThickness}in (Total: ${cubicFeet.toFixed(2)} CFT).`
+                  `Hi Sree Ambika Saw Mill, I want a quote for: ${calcQuantity} pcs of ${calcLength}ft x ${calcWidth}in x ${calcThickness}in (Total: ${cubicFeet.toFixed(2)} CFT).`
                 )}`}
                 target="_blank"
                 rel="noreferrer"
@@ -256,7 +256,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-stone-400">
           <div className="flex items-center gap-2">
             <TreePine className="w-4 h-4 text-amber-500" />
-            <span className="font-semibold text-stone-200">BP Saw Mill</span>
+            <span className="font-semibold text-stone-200">Sree Ambika Saw Mill</span>
             <span>— Quality Timber & Sawing Services</span>
           </div>
 
