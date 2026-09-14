@@ -3,7 +3,6 @@ import {
   TreePine, 
   PhoneCall, 
   MessageSquare, 
-  ShieldCheck, 
   MapPin, 
   Clock,
   Layers,
@@ -206,10 +205,6 @@ export default function App() {
       <main className="flex-1">
         <section className="relative overflow-hidden py-24 sm:py-32 px-4 sm:px-6 bg-gradient-to-b from-amber-50/50 via-white to-stone-50">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300/80 text-amber-900 text-xs font-semibold uppercase tracking-wider mb-8 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-700" />
-              Direct From The Mill • Wholesale & Custom Cuts
-            </div>
             
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-stone-900 leading-[1.12] mb-6 font-heading">
               We don't just supply timber. <br />
